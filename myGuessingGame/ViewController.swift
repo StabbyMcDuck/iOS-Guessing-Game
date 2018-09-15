@@ -26,6 +26,10 @@ class ViewController: UIViewController {
     
     var correctAnswer = ""
     
+    var score = 0
+    
+    var numberOfGuesses = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -47,16 +51,27 @@ class ViewController: UIViewController {
         gamesPlayed = gamesPlayed + 1
         
         gamesLabel.text = "Games Played: \(gamesPlayed)"
-        
-        
-        
     }
     
     @IBAction func checkAnswerBtn(_ sender: Any) {
+        // if a new game hasn't been started
+        if correctAnswer == "" {
+            let alert = UIAlertController(title: "Please press new game button", message: "so we can play the game", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                
+            }
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+          
+        // a new game has been started
+        } else {
+            
+            
+        }
+        
     
-    
-    
-    }
+    } // end of check answer function
     
 }
 
