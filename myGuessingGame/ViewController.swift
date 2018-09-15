@@ -90,9 +90,20 @@ class ViewController: UIViewController {
                 scoreLabel.text = "Score: \(score)"
                 
                 // clear out answer and number of guesses
+                guessLabel.text = "Number of Guesses: "
                 correctAnswer = ""
                 numberOfGuesses = 0
+            
+            // wrong answer code
+            } else {
+                answerLabel.text = "Wrong Answer.  Guess again!"
+                answerLabel.textColor = UIColor.red
+                
             }
+            
+            guessField.resignFirstResponder()
+            guessField.text = ""
+            
         }
         
     
