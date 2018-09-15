@@ -66,8 +66,33 @@ class ViewController: UIViewController {
           
         // a new game has been started
         } else {
+            numberOfGuesses = numberOfGuesses + 1
+            guessLabel.text = "Number of Guesses \(numberOfGuesses)"
             
+            if guessField.text == correctAnswer {
+                let alert = UIAlertController(title: "Congratulations!", message: "Do you want to play again?", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
             
+                }
+                
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+                
+                if numberOfGuesses == 1 {
+                    score = score + 10
+                } else if numberOfGuesses == 2 {
+                    score = score + 5
+                } else if numberOfGuesses == 3 {
+                    score = score + 1
+                }
+                
+                answerLabel.text = ""
+                scoreLabel.text = "Score: \(score)"
+                
+                // clear out answer and number of guesses
+                correctAnswer = ""
+                numberOfGuesses = 0
+            }
         }
         
     
