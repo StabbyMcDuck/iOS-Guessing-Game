@@ -20,6 +20,12 @@ class ViewController: UIViewController {
     
     @IBOutlet var answerLabel: UILabel!
     
+    var itemArray = ["Car", "House", "Boat", "Tree"]
+    
+    var gamesPlayed = 0;
+    
+    var correctAnswer = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,9 +37,25 @@ class ViewController: UIViewController {
     }
 
     @IBAction func newGameBtn(_ sender: Any) {
+        let randomNumber = Int(arc4random()) % itemArray.count
+        let i = randomNumber
+        
+        correctAnswer = itemArray[i]
+        
+        print("*************", correctAnswer)
+        
+        gamesPlayed = gamesPlayed + 1
+        
+        gamesLabel.text = "Games Played: \(gamesPlayed)"
+        
+        
+        
     }
     
     @IBAction func checkAnswerBtn(_ sender: Any) {
+    
+    
+    
     }
     
 }
